@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeraPacketRetranslator", "TeraPacketRetranslator.csproj", "{F67F3B2B-9107-4D5F-9475-6F06A9E41675}"
+EndProject
+Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F67F3B2B-9107-4D5F-9475-6F06A9E41675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F67F3B2B-9107-4D5F-9475-6F06A9E41675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F67F3B2B-9107-4D5F-9475-6F06A9E41675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F67F3B2B-9107-4D5F-9475-6F06A9E41675}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ADDF6E4-15CD-4AC6-9434-756C89F8B4C2}
+	EndGlobalSection
+EndGlobal

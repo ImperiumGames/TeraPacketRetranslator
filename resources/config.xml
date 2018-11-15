@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+<!-- Avaliable types: input-raw, raw-translated, raw-output, translated-translated, translated-output -->
+<!-- source attribute is required for root, destination attribute is required for leaf. Intermediete processors are supposed to use parent as input and pass their outputs to their children -->
+<!-- version attribute is required for input processors -->
+<!-- path is required only for dumps (in and out) and network output-->
+	
+	<processor type="input-raw" source="dump" path="packetlog_bzv.log"> 
+		<processor type="raw-translated" version="75">
+			<!-- Avaliable filter types: whitelist, blacklist, none, block -->
+			<!-- If filter type is whitelist, "blacklist" element is ignored, and vice versa --> 
+			<!-- If filter is none, everything passes through, all child nodes are ignored -->
+			<!-- If filter is block, everything is blocked, cll child nodes are ignored -->
+			<!-- Filters can be applied to any processor except those which are input-raw type-->
+			<filter type="whitelist">
+				<whitelist>
+					<opcode>S_GUILD_TOWER_INFO</opcode>
+				</whitelist>
+				<blacklist> 
+					<opcode>S_SHOW_HP</opcode>
+					<opcode>S_USER_LOCATION</opcode>
+					<opcode>S_SOCIAL</opcode>
+				</blacklist>
+			</filter>	
+			<processor type="translated-output" destination="log" settings="nocontent"/>
+		</processor>
+		
+		<processor type="raw-output" destination="dump" path="packetlog2.log" /> 
+	</processor>
+	
+	<processor type="input-raw" source="network"> 
+		<filter type="whitelist">
+			<whitelist> 
+				<opcode>S_GUILD_MEMBER_LIST</opcode>
+				<opcode>S_USER_PAPERDOLL_INFO</opcode>
+			</whitelist>
+		</filter>
+		
+		<processor type="raw-translated" version="75">
+			<processor type="translated-output" destination="network" path="https://us-central1-imperium-guild.cloudfunctions.net/addMessage" />
+			<processor type="translated-output" destination="log" />
+		</processor>
+		
+		<processor type="raw-output" destination="dump" path="packetlog_paperdoll.log">
+			<filter type="whitelist">
+				<whitelist> 
+					<opcode>S_USER_PAPERDOLL_INFO</opcode>
+				</whitelist>
+			</filter>
+		</processor>
+
+	</processor>
+
+</config>
