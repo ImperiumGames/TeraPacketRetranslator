@@ -1,0 +1,3 @@
+[submodule "resources/tera-data"]
+	path = resources/tera-data
+	url = https://github.com/ImperiumGames/tera-data
